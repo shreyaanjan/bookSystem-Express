@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <section>
+        <div class="container my-4">
+            <h2 class="title text-center">Book Details</h2>
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Book Name</th>
+                                <th>Author Name</th>
+                                <th>Price</th>
+                                <th>Published Date</th>
+                                <th>Genre</th>
+                                <th>Book Format</th>
+                                <th>Book Features</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% books.map((book, idx)=> { %>
+                                <tr class="border-bottom">
+                                    <td>
+                                        <%= idx+1 %>
+                                    </td>
+                                    <td>
+                                        <%= book.name %>
+                                    </td>
+                                    <td>
+                                        <%= book.author %>
+                                    </td>
+                                    <td>
+                                        <%= book.price %>
+                                    </td>
+                                    <td>
+                                        <%= book.date %>
+                                    </td>
+                                    <td>
+                                        <%= book.genre %>
+                                    </td>
+                                    <td>
+                                        <%= book.format %>
+                                    </td>
+                                    <td>
+                                        <div class="badge-container">
+                                            <%- book.features.map(item=>
+                                                item === "Bestseller"
+                                                ? `<span class="badge-feature badge-bestseller">${item}</span>`
+                                                : item === "New Arrival"
+                                                ? `<span class="badge-feature badge-newarrival">${item}</span>`
+                                                : `<span class="badge-feature badge-award">${item}</span>`
+                                                ).join(" ")
+                                            %>
+                                        </div>
+                                    </td>
+                                    <td class="d-flex align-items-center gap-3 border-0">
+                                        <a href="/edit-book/<%= book.id %>" class="btn btn-edit">Edit</a>
+                                        <button onclick="deleteBook('<%= book.id %>')"
+                                            class="btn btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const deleteBook = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `/delete-book/${id}`
+            }
+        });
+    }
+</script>
+
+</html>

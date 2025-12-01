@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --bg: #efe6e1;
+    --panel: #fff;
+    --muted: #7b7b7b;
+    --accent: #d9f4b6;
+    --accent-2: #fbe8d6;
+    --soft-shadow: 0 6px 18px rgba(22, 22, 22, 0.06);
+    --card-radius: 14px;
+}
+
+body {
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.table-card {
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--soft-shadow);
+}
+
+table.table thead th {
+    color: #8a8a8a;
+    font-weight: 700;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+table.table tbody td {
+    vertical-align: middle;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    color: #444;
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 6px;
+}
+
+.badge-feature {
+    border-radius: 18px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
+.badge-bestseller {
+    background: #ffe5e5;
+    color: #b00020;
+}
+
+.badge-newarrival {
+    background: #e8f4ff;
+    color: #0057b3;
+}
+
+.badge-award {
+    background: #fff7d4;
+    color: #8f6a00;
+}
+
+.btn-edit {
+    background-color: #8bbf3f;
+    color: #fff;
+    padding: 6px 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #7aa233;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #d16a3a;
+    color: #fff;
+    padding: 6px 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #b85324;
+    color: #fff;
+}
+
+.title {
+    color: #b34700;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}

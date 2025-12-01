@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <section>
+        <div class="container my-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Book Collection</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/add-book" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Book Name :</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author Name :</label>
+                            <input type="text" class="form-control" id="author" name="author">
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price :</label>
+                            <input type="number" class="form-control" id="price" name="price">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Published Date :</label>
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                        <div class="mb-3">
+                            <label for="genre" class="form-label">Genre :</label>
+                            <select class="form-select" id="genre" name="genre">
+                                <option selected>Select Genre</option>
+                                <option value="Classic">Classic</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Thriller">Thriller</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-block">Book Format :</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="format" value="Hardcover"
+                                    id="hardcover">
+                                <label class="form-check-label" for="hardcover">Hardcover</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="format" value="Paperback"
+                                    id="paperback">
+                                <label class="form-check-label" for="paperback">Paperback</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="format" value="eBook" id="ebook">
+                                <label class="form-check-label" for="ebook">eBook</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="format" value="Audiobook" id="audio">
+                                <label class="form-check-label" for="audio">Audiobook</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label d-block">Book Features :</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="features" value="Bestseller"
+                                    id="bestseller">
+                                <label class="form-check-label" for="bestseller">Bestseller</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="features" value="New Arrival"
+                                    id="newarrival">
+                                <label class="form-check-label" for="newarrival">New Arrival</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="features" value="Award Winning"
+                                    id="award">
+                                <label class="form-check-label" for="award">Award Winning</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
