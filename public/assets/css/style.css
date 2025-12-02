@@ -10,18 +10,26 @@
     --card-radius: 14px;
 }
 
+html,
 body {
-    height: 100vh;
+    height: 96vh;
     font-family: "Inter", sans-serif;
     background: var(--bg);
     color: #222;
+    scrollbar-width: none;
+}
+
+.scrollbar-0 {
+    scrollbar-width: none;
 }
 
 .badge-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 6px 6px;
 }
+
 
 .badge-feature {
     border-radius: 18px;
@@ -134,7 +142,7 @@ body {
     border-radius: 6px;
 }
 
-.card-header { 
+.card-header {
     background: #2d2d2d;
     color: #fff;
 }
@@ -148,7 +156,8 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-.table td, .table th {
+.table td,
+.table th {
     white-space: nowrap;
 }
 
@@ -163,19 +172,15 @@ body {
     color: #fff !important;
 }
 
-@media (max-width: 576px) {
-    td .btn {
-        padding: 4px 6px;
-        font-size: 12px;
-    }
+.form-control:focus,
+.form-select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #2d2d2d !important;
+}
 
-    td.d-flex {
-        flex-wrap: wrap;
-        gap: 4px !important;
-    }
-
-    .badge-container span {
-        font-size: 11px;
-        padding: 3px 6px;
-    }
+.form-check-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #2d2d2d !important;
 }

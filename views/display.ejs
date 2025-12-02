@@ -12,13 +12,13 @@
 
 <body>
     <section>
-        <div class="container-fluid">
-            <div class="d-flex align-items-center justify-content-between my-3">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between my-4">
                 <h2 class="title m-0">Book Details</h2>
                 <a href="/add-book" class="btn btn-two">Add Book</a>
             </div>
-            <div class="table-responsive">
-                <table class="table align-middle">
+            <div class="table-responsive scrollbar-0">
+                <table class="table align-middle text-center">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -66,13 +66,20 @@
                                             ).join(" ") %>
                                     </div>
                                 </td>
-                                <td class="d-flex align-items-center gap-2">
-                                    <a href="/edit-book/<%= book.id %>" class="btn btn-success btn-sm">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                    <button onclick="deleteBook('<%= book.id %>')" class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash3"></i>
-                                    </button>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div>
+                                            <a href="/edit-book/<%= book.id %>" class="btn btn-success btn-sm">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <button onclick="deleteBook('<%= book.id %>')"
+                                                class="btn btn-danger btn-sm">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <% }) %>
