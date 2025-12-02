@@ -5,89 +5,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Application</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-    <section>
-        <div class="container my-4">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
+    <section class="book-section">
+        <h2 class="text-center mb-4 title">BookHub</h2>
+        <div class="container d-flex justify-content-center">
+            <div class="card shadow book-card">
+                <div class="card-header">
                     <h4 class="mb-0">Edit Book</h4>
                 </div>
                 <div class="card-body">
                     <form action="/edit-book/<%= editBook.id %>" method="post">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Book Name :</label>
-                            <input type="text" id="name" name="name" value="<%= editBook.name %>" class="form-control">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="name" class="form-label">Book Name :</label>
+                                <input type="text" id="name" name="name" value="<%= editBook.name %>"
+                                    class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="author" class="form-label">Author Name :</label>
+                                <input type="text" value="<%= editBook.author %>" class="form-control" id="author"
+                                    name="author">
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="author" class="form-label">Author Name :</label>
-                            <input type="text" value="<%= editBook.author %>" class="form-control" id="author"
-                                name="author">
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Price :</label>
-                            <input type="number" value="<%= editBook.price %>" class="form-control" id="price"
-                                name="price">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Published Date :</label>
-                            <input type="date" value="<%= editBook.date %>" class="form-control" id="date" name="date">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="price" class="form-label">Price :</label>
+                                <input type="number" value="<%= editBook.price %>" class="form-control" id="price"
+                                    name="price">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="date" class="form-label">Published Date :</label>
+                                <input type="date" value="<%= editBook.date %>" class="form-control" id="date"
+                                    name="date">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="genre" class="form-label">Genre :</label>
                             <select class="form-select" id="genre" name="genre">
                                 <option selected>Select Genre</option>
-                                <option <%=editBook.genre == "Classic" ? "selected" : "" %> value="Classic">Classic</option>
-                                <option <%=editBook.genre == "Comedy" ? "selected" : "" %> value="Comedy">Comedy</option>
-                                <option <%=editBook.genre == "Horror" ? "selected" : "" %> value="Horror">Horror</option>
-                                <option <%=editBook.genre == "Mystery" ? "selected" : "" %> value="Mystery">Mystery</option>
-                                <option <%=editBook.genre == "Romance" ? "selected" : "" %> value="Romance">Romance</option>
-                                <option <%=editBook.genre == "Thriller" ? "selected" : "" %> value="Thriller">Thriller</option>
+                                <option <%=editBook.genre=="Classic" ? "selected" : "" %> value="Classic">Classic
+                                </option>
+                                <option <%=editBook.genre=="Comedy" ? "selected" : "" %> value="Comedy">Comedy</option>
+                                <option <%=editBook.genre=="Horror" ? "selected" : "" %> value="Horror">Horror</option>
+                                <option <%=editBook.genre=="Mystery" ? "selected" : "" %> value="Mystery">Mystery
+                                </option>
+                                <option <%=editBook.genre=="Romance" ? "selected" : "" %> value="Romance">Romance
+                                </option>
+                                <option <%=editBook.genre=="Thriller" ? "selected" : "" %> value="Thriller">Thriller
+                                </option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label d-block">Book Format :</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.format == "Hardcover" ? "checked" : "" %> type="radio" name="format" value="Hardcover"
-                                    id="hardcover">
+                                <input class="form-check-input" <%=editBook.format=="Hardcover" ? "checked" : "" %>
+                                type="radio" name="format" value="Hardcover"
+                                id="hardcover">
                                 <label class="form-check-label" for="hardcover">Hardcover</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.format == "Paperback" ? "checked" : "" %> type="radio" name="format" value="Paperback"
-                                    id="paperback">
+                                <input class="form-check-input" <%=editBook.format=="Paperback" ? "checked" : "" %>
+                                type="radio" name="format" value="Paperback"
+                                id="paperback">
                                 <label class="form-check-label" for="paperback">Paperback</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.format == "eBook" ? "checked" : "" %> type="radio" name="format" value="eBook" id="ebook">
+                                <input class="form-check-input" <%=editBook.format=="eBook" ? "checked" : "" %>
+                                type="radio" name="format" value="eBook" id="ebook">
                                 <label class="form-check-label" for="ebook">eBook</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.format == "Audiobook" ? "checked" : "" %> type="radio" name="format" value="Audiobook" id="audio">
+                                <input class="form-check-input" <%=editBook.format=="Audiobook" ? "checked" : "" %>
+                                type="radio" name="format" value="Audiobook" id="audio">
                                 <label class="form-check-label" for="audio">Audiobook</label>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label d-block">Book Features :</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.features.includes('Bestseller') ? 'checked' : "" %> type="checkbox" name="features" value="Bestseller"
-                                    id="bestseller">
+                                <input class="form-check-input" <%=editBook.features.includes('Bestseller') ? 'checked'
+                                    : "" %> type="checkbox" name="features" value="Bestseller"
+                                id="bestseller">
                                 <label class="form-check-label" for="bestseller">Bestseller</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.features.includes('New Arrival') ? 'checked' : "" %> type="checkbox" name="features" value="New Arrival"
-                                    id="newarrival">
+                                <input class="form-check-input" <%=editBook.features.includes('New Arrival') ? 'checked'
+                                    : "" %> type="checkbox" name="features" value="New Arrival"
+                                id="newarrival">
                                 <label class="form-check-label" for="newarrival">New Arrival</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" <%= editBook.features.includes('Award Winning') ? 'checked' : "" %> type="checkbox" name="features" value="Award Winning"
-                                    id="award">
+                                <input class="form-check-input" <%=editBook.features.includes('Award Winning')
+                                    ? 'checked' : "" %> type="checkbox" name="features" value="Award Winning"
+                                id="award">
                                 <label class="form-check-label" for="award">Award Winning</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-edit w-100">Update Book</button>
+                        </div>
                     </form>
                 </div>
             </div>
