@@ -13,16 +13,16 @@ connectDb()
 
 app.get('/', async (req, res) => {
     try {
-        return res.render('index')
+        const books = await Books.find({})
+        return res.render("display", { books })
     } catch (error) {
         console.log(error);
     }
 })
 
-app.get('/display', async (req, res) => {
+app.get('/add-book', async (req, res) => {
     try {
-        const books = await Books.find({})
-        return res.render("display", { books })
+        return res.render('index')
     } catch (error) {
         console.log(error);
     }
@@ -33,7 +33,7 @@ app.post('/add-book', async (req, res) => {
         const data = req.body
         const newBook = new Books(data)
         await newBook.save()
-        return res.redirect('/display')
+        return res.redirect('/')
     } catch (error) {
         console.log(error);
     }
@@ -43,7 +43,7 @@ app.get('/delete-book/:deleteId', async (req, res) => {
     try {
         const { deleteId } = req.params
         await Books.findByIdAndDelete(deleteId)
-        return res.redirect('/display')
+        return res.redirect('/')
     } catch (error) {
         console.log(error);
     }
@@ -64,7 +64,7 @@ app.post('/edit-book/:editId', async (req, res) => {
         const { editId } = req.params
         const data = req.body
         await Books.findByIdAndUpdate(editId, data)
-        return res.redirect('/display')
+        return res.redirect('/')
     } catch (error) {
         console.log(error);
     }

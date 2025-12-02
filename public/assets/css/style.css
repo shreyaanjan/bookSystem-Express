@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-    --bg: #efe6e1;
+    --bg: #d7d1ad;
     --panel: #fff;
     --muted: #7b7b7b;
     --accent: #d9f4b6;
@@ -11,33 +11,10 @@
 }
 
 body {
-    height: 100%;
+    height: 100vh;
     font-family: "Inter", sans-serif;
     background: var(--bg);
     color: #222;
-}
-
-.table-card {
-    background: var(--panel);
-    border-radius: 14px;
-    padding: 16px;
-    box-shadow: var(--soft-shadow);
-}
-
-table.table thead th {
-    color: #8a8a8a;
-    font-weight: 700;
-    font-size: 0.9rem;
-    vertical-align: middle;
-    padding-top: 16px;
-    padding-bottom: 16px;
-}
-
-table.table tbody td {
-    vertical-align: middle;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    color: #444;
 }
 
 .badge-container {
@@ -68,44 +45,43 @@ table.table tbody td {
     color: #8f6a00;
 }
 
-.btn-edit {
-    background-color: #8bbf3f;
+.btn-one {
+    background-color: #2d2d2d;
     color: #fff;
     padding: 6px 14px;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-edit:hover {
-    background-color: #7aa233;
+.btn-one:hover {
+    background-color: #4a4a4a;
     color: #fff;
 }
 
-.btn-delete {
-    background-color: #d16a3a;
+.btn-two {
+    background-color: #ee2c7b;
     color: #fff;
     padding: 6px 14px;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-delete:hover {
-    background-color: #b85324;
+.btn-two:hover {
+    background-color: #ff4f94;
     color: #fff;
 }
 
 .title {
-    color: #b34700;
+    color: #2d2d2d;
     font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.mb{
+.mb {
     margin-bottom: 20px;
 }
 
-.form-control-sm, .form-select-sm {
+.form-control-sm,
+.form-select-sm {
     height: 34px !important;
     font-size: 14px;
     border-radius: 6px;
@@ -120,15 +96,7 @@ table.table tbody td {
 .book-section .card {
     width: 700px;
     max-height: 88vh;
-    border-radius: var(--card-radius);
-    overflow-y: auto;
-}
-
-.book-section .card-header {
-    background: #222 !important;
-    color: #fff;
-    border-top-left-radius: var(--card-radius);
-    border-top-right-radius: var(--card-radius);
+    border-radius: 0;
 }
 
 .book-section .card-body {
@@ -164,4 +132,50 @@ table.table tbody td {
     height: 34px !important;
     font-size: 14px !important;
     border-radius: 6px;
+}
+
+.card-header { 
+    background: #2d2d2d;
+    color: #fff;
+}
+
+.card-header:first-child {
+    border-radius: 0px !important;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table td, .table th {
+    white-space: nowrap;
+}
+
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.table thead th {
+    background-color: #2d2d2d !important;
+    color: #fff !important;
+}
+
+@media (max-width: 576px) {
+    td .btn {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+    td.d-flex {
+        flex-wrap: wrap;
+        gap: 4px !important;
+    }
+
+    .badge-container span {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
 }
